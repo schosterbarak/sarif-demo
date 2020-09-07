@@ -23,6 +23,11 @@ jobs:
       with:
         api-key: ${{ secrets.API_KEY }}
         soft-fail: true
+      env:  
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_REF: ${{ github.ref }}
+        GITHUB_SHA: ${{ github.sha }}
+        GITHUB_SERVER_URL: $GITHUB_SERVER_URL  
     - name: Expose report
       uses: actions/upload-artifact@v2
       with:
